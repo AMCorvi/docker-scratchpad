@@ -1,0 +1,19 @@
+{
+  "name": "schema_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AMCorvi <am@corvi.co>",
+  "license": "MIT",
+  "dependencies": {
+    "@amcorvi/loadout": "0.0.0",
+    "body-parser": "1.18.3",
+    "cookie-parser": "1.4.3",
+    "express": "4.16.4",
+    "morgan": "1.9.1"
+  }
+}

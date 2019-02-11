@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:10.4-alpine
+    environment:
+      - POSTGRES_PASSWORD=enterpassword
+      - POSTGRES_USER=superuser
+    ports:
+      - 400:5432
+
+  events:
+      build: ./events
+      ports:
+        - 80:9000
+      depends_on:
+        - database
+        - schema
+      environment:
+        - NODE_ENV=production
+        - DB_HOST=database
+        - DB_USER=superuser
+        - DB_PASSWORD=enterpassword
+        - DB_NAME=superuser
+
+  schema:
+      build: ./schema_server
+      ports:
+        - 8000:8000
+      environment:
+        - NODE_ENV=production
+
